@@ -7,6 +7,7 @@ It consists of two steps: 1) using OWLS2PDDL to convert OWL files into PDDL file
 
 ## Authors
 This software is originally adapted and developed by Anthony Heggen, and currently maintained by Guangyi Chen.
+
 Contact: Dr.Elena Jaramillo, [PD Dr. Matthias Klusch](https://www.dfki.de/~klusch/)
 
 ## To run
