@@ -13,11 +13,14 @@ Contact: Dr.Elena Jaramillo, [PD Dr. Matthias Klusch](https://www.dfki.de/~klusc
 ### 1 OWL2SPDDL
 #### 1.1 Local File System
 The current version of OWLS2PDDL requires read/write access to a local directory. This directory must be hosted at http://127.0.0.1:8080, and should have the following structure:
-* root folder
-** services
-*** <all relevant OWL-S files>
-** tmp
-** <any other OWL resource files>
+
+```
+root folder
+  services
+    <all relevant OWL-S files>
+  tmp
+  <any other OWL resource files>
+```
 
   
 #### 1.2 Setting Up a Local Server
