@@ -1,12 +1,10 @@
 # OWLS-FDplan
 
 ## About
-OWLS-FDplan is a service composition planner: Given a service composition problem expressed in OWL-S 1.1 as input, OWLS-FDplan produces a set of plans solving that problem. This document gives users a complete example to use the OWLS-FDplan. 
-
-It consists of two steps: 1) using OWLS2PDDL to convert OWL files into PDDL files; 2) invoking FastDownwardCaller on this PDDL representation to produce the set of plans (OWL-S).
+OWLS-FDplan is a service composition planner: Given a service composition problem expressed in OWL-S 1.1 as input, OWLS-FDplan produces a set of plans solving that problem. It consists of two steps: 1) using OWLS2PDDL to convert OWL files into PDDL files; 2) invoking FastDownwardCaller on this PDDL representation to produce the set of plans (OWL-S).
 
 ## Authors
-This software is originally adapted and developed by Anthony Heggen, and currently maintained by Guangyi Chen.
+This software is originally adapted and developed by Anthony Heggen, and currently maintained by [Guangyi Chen](emailto:guangyi.chen@dfki.de).
 
 Contact: Dr.Elena Jaramillo, [PD Dr. Matthias Klusch](https://www.dfki.de/~klusch/)
 
