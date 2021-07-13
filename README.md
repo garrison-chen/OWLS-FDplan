@@ -173,9 +173,6 @@ import de.dfki.fastdownwardcaller.*;
 	FastDownwardCaller caller = new FastDownwardCaller("your-path/downward-main");
 		
 	try {
-		
-		// pass Strings representing domain and problem pddls 
-		// here you may use your outputs from OWLS2PDDL in the previous step for problem.pddl and domain.pddl files
 		caller.readInProblem(new File("your-path-to-problem_pddl/problem.pddl"));
 		caller.readInDomain(new File("your-path-to-domain_pddl/domain.pddl"));
 		
@@ -185,7 +182,6 @@ import de.dfki.fastdownwardcaller.*;
 			
 	}
 		
-	// Get a composed service as a w3c Document
 	Plan lowestCostPlan = caller.getLowestCostPlan(true);
 		
 	File outputDirectory = new File("/Users/guangyichen/Desktop/");
