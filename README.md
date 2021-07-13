@@ -1,15 +1,11 @@
 # OWLS-FDplan
 
-## About
+## Introduction
 OWLS-FDplan is a service composition planner: Given a service composition problem expressed in OWL-S 1.1 as input, OWLS-FDplan produces a set of plans solving that problem. It consists of two steps: 1) using OWLS2PDDL to convert OWL files into PDDL files; 2) invoking FastDownwardCaller on this PDDL representation to produce the set of plans (OWL-S).
 
-## Authors
-This software is originally adapted and developed by [Anthony Heggen](https://www.linkedin.com/in/anthony-heggen-592188142/), and currently maintained by [Guangyi Chen](https://www.dfki.de/en/web/about-us/employee/person/guch01/).
 
-Contact: Dr. Elena Jaramillo, [PD Dr. Matthias Klusch](https://www.dfki.de/~klusch/)
-
-## To run
-### 1 OWL2SPDDL
+## How to run
+### 1. OWL2SPDDL
 #### 1.1 Local File System
 The current version of OWLS2PDDL requires read/write access to a local directory. This directory must be hosted at http://127.0.0.1:8080, and should have the following structure:
 
@@ -206,3 +202,10 @@ import de.dfki.fastdownwardcaller.*;
 
 ## Complete Example
 You may find a complete example included in this repository.
+
+
+
+## Acknoledgement
+This software is originally adapted and developed by [Anthony Heggen](https://www.linkedin.com/in/anthony-heggen-592188142/), and currently maintained by [Guangyi Chen](https://www.dfki.de/en/web/about-us/employee/person/guch01/).
+
+Contact: Dr. Elena Jaramillo, [PD Dr. Matthias Klusch](https://www.dfki.de/~klusch/)
