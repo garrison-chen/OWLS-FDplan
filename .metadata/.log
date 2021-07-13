@@ -1,84 +1,120 @@
-!SESSION 2021-07-13 15:22:45.843 -----------------------------------------------
-eclipse.buildId=4.16.0.I20200604-0540
-java.version=14.0.2
-java.vendor=Oracle Corporation
-BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_GB
-Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/guangyichen/.eclipse_keyring
-Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/guangyichen/.eclipse_keyring
 
-!ENTRY org.eclipse.jface 2 0 2021-07-13 15:23:08.455
-!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
-!SUBENTRY 1 org.eclipse.jface 2 0 2021-07-13 15:23:08.455
-!MESSAGE A conflict occurred for COMMAND+SHIFT+T:
-Binding(COMMAND+SHIFT+T,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
-		Open a type in a Java editor,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@24955144,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.contexts.window,,,system)
-Binding(COMMAND+SHIFT+T,
-	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
-		,
-		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@9d2af36,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.contexts.window,,,system)
-!SESSION 2021-07-13 15:30:39.764 -----------------------------------------------
-eclipse.buildId=4.16.0.I20200604-0540
-java.version=14.0.2
-java.vendor=Oracle Corporation
-BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_GB
-Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/guangyichen/.eclipse_keyring
-Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/guangyichen/.eclipse_keyring
+!ENTRY org.eclipse.wst.sse.core 4 4 2021-07-13 16:00:28.533
+!MESSAGE /Users/guangyichen/Desktop/DFKI/Software/OWLS-FDplan/.metadata/.plugins/org.eclipse.wst.sse.core/task-tags.properties (No such file or directory)
+!STACK 0
+java.io.FileNotFoundException: /Users/guangyichen/Desktop/DFKI/Software/OWLS-FDplan/.metadata/.plugins/org.eclipse.wst.sse.core/task-tags.properties (No such file or directory)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:291)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:234)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:184)
+	at org.eclipse.wst.sse.core.internal.tasks.TaskScanningJob.setScannedProjects(TaskScanningJob.java:308)
+	at org.eclipse.wst.sse.core.internal.tasks.TaskScanningJob.addProjectDelta(TaskScanningJob.java:82)
+	at org.eclipse.wst.sse.core.internal.tasks.TaskScanningScheduler$ListenerVisitor.visit(TaskScanningScheduler.java:56)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:67)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:51)
+	at org.eclipse.wst.sse.core.internal.tasks.TaskScanningScheduler$ListenerVisitor.resourceChanged(TaskScanningScheduler.java:38)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:305)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:295)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:158)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:380)
+	at org.eclipse.core.internal.resources.Workspace.checkpoint(Workspace.java:575)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.lambda$0(PerformChangeOperation.java:263)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2317)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:295)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:94)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:219)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2317)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:89)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
 
-!ENTRY org.eclipse.jface 2 0 2021-07-13 15:30:54.865
-!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
-!SUBENTRY 1 org.eclipse.jface 2 0 2021-07-13 15:30:54.865
-!MESSAGE A conflict occurred for COMMAND+SHIFT+T:
-Binding(COMMAND+SHIFT+T,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
-		Open a type in a Java editor,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@31433df9,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.contexts.window,,,system)
-Binding(COMMAND+SHIFT+T,
-	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
-		,
-		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2d4a0671,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.contexts.window,,,system)
-!SESSION 2021-07-13 15:37:03.440 -----------------------------------------------
-eclipse.buildId=4.16.0.I20200604-0540
-java.version=14.0.2
-java.vendor=Oracle Corporation
-BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_GB
-Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -keyring /Users/guangyichen/.eclipse_keyring
-Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -data /Users/guangyichen/Desktop/DFKI/Software/OWLS-FDplan -product org.eclipse.epp.package.java.product -keyring /Users/guangyichen/.eclipse_keyring
+!ENTRY org.eclipse.wst.sse.core 4 4 2021-07-13 16:00:28.535
+!MESSAGE /Users/guangyichen/Desktop/DFKI/Software/OWLS-FDplan/.metadata/.plugins/org.eclipse.wst.sse.core/task-tags.properties (No such file or directory)
+!STACK 0
+java.io.FileNotFoundException: /Users/guangyichen/Desktop/DFKI/Software/OWLS-FDplan/.metadata/.plugins/org.eclipse.wst.sse.core/task-tags.properties (No such file or directory)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:291)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:234)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:184)
+	at org.eclipse.wst.sse.core.internal.tasks.TaskScanningJob.setScannedProjects(TaskScanningJob.java:308)
+	at org.eclipse.wst.sse.core.internal.tasks.TaskScanningJob.addProjectDelta(TaskScanningJob.java:82)
+	at org.eclipse.wst.sse.core.internal.tasks.TaskScanningScheduler$ListenerVisitor.visit(TaskScanningScheduler.java:56)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:67)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:51)
+	at org.eclipse.wst.sse.core.internal.tasks.TaskScanningScheduler$ListenerVisitor.resourceChanged(TaskScanningScheduler.java:38)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:305)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:295)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:158)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:380)
+	at org.eclipse.core.internal.resources.Workspace.checkpoint(Workspace.java:575)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.lambda$0(PerformChangeOperation.java:263)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2317)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:295)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:94)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:219)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2317)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:89)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
 
-!ENTRY org.eclipse.jface 2 0 2021-07-13 15:37:09.560
-!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
-!SUBENTRY 1 org.eclipse.jface 2 0 2021-07-13 15:37:09.560
-!MESSAGE A conflict occurred for COMMAND+SHIFT+T:
-Binding(COMMAND+SHIFT+T,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
-		Open a type in a Java editor,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@67e4928c,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.contexts.window,,,system)
-Binding(COMMAND+SHIFT+T,
-	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
-		,
-		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2cc61b3b,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.contexts.window,,,system)
+!ENTRY org.eclipse.core.resources 4 566 2021-07-13 16:00:28.653
+!MESSAGE Could not save master table to file '/Users/guangyichen/Desktop/DFKI/Software/OWLS-FDplan/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources'.
+!STACK 0
+java.io.FileNotFoundException: /Users/guangyichen/Desktop/DFKI/Software/OWLS-FDplan/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources (No such file or directory)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:291)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:234)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:155)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:48)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:44)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1265)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1255)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1232)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1143)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.resources 4 566 2021-07-13 16:00:36.180
+!MESSAGE Could not save master table to file '/Users/guangyichen/Desktop/DFKI/Software/OWLS-FDplan/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources.bak'.
+!STACK 0
+java.io.FileNotFoundException: /Users/guangyichen/Desktop/DFKI/Software/OWLS-FDplan/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources.bak (No such file or directory)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:291)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:234)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:155)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:48)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:44)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1265)
+	at org.eclipse.core.internal.resources.SaveManager.cleanMasterTable(SaveManager.java:240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1173)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2333)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.lambda$1(IDEWorkbenchAdvisor.java:509)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+
+!ENTRY org.eclipse.ui.ide 4 4 2021-07-13 16:00:39.031
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 4 1 2021-07-13 16:00:39.032
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.core.resources 4 566 2021-07-13 16:00:39.032
+!MESSAGE Could not save master table to file '/Users/guangyichen/Desktop/DFKI/Software/OWLS-FDplan/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources'.
+!STACK 0
+java.io.FileNotFoundException: /Users/guangyichen/Desktop/DFKI/Software/OWLS-FDplan/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources (No such file or directory)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:291)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:234)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:155)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:48)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:44)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1265)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1255)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1232)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2333)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.lambda$1(IDEWorkbenchAdvisor.java:509)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
