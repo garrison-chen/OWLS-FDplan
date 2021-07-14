@@ -1,15 +1,11 @@
 # OWLS-FDplan
 
-## About
+## Introduction
 OWLS-FDplan is a service composition planner: Given a service composition problem expressed in OWL-S 1.1 as input, OWLS-FDplan produces a set of plans solving that problem. It consists of two steps: 1) using OWLS2PDDL to convert OWL files into PDDL files; 2) invoking FastDownwardCaller on this PDDL representation to produce the set of plans (OWL-S).
 
-## Authors
-This software is originally adapted and developed by [Anthony Heggen](https://www.linkedin.com/in/anthony-heggen-592188142/), and currently maintained by [Guangyi Chen](https://www.dfki.de/en/web/about-us/employee/person/guch01/).
 
-Contact: Dr. Elena Jaramillo, [PD Dr. Matthias Klusch](https://www.dfki.de/~klusch/)
-
-## To run
-### 1 OWL2SPDDL
+## How to run
+### 1. OWL2SPDDL
 #### 1.1 Local File System
 The current version of OWLS2PDDL requires read/write access to a local directory. This directory must be hosted at http://127.0.0.1:8080, and should have the following structure:
 
@@ -163,7 +159,7 @@ python3 -m http.server 8080 --bind 127.0.0.1
   
   
 
-#### 2.3 Invoking FastDownwardCaller V1.2
+#### 2.3 Invoking FastDownwardCaller
 ```java
 import java.io.File;
 import java.net.URI;
@@ -177,9 +173,6 @@ import de.dfki.fastdownwardcaller.*;
 	FastDownwardCaller caller = new FastDownwardCaller("your-path/downward-main");
 		
 	try {
-		
-		// pass Strings representing domain and problem pddls 
-		// here you may use your outputs from OWLS2PDDL in the previous step for problem.pddl and domain.pddl files
 		caller.readInProblem(new File("your-path-to-problem_pddl/problem.pddl"));
 		caller.readInDomain(new File("your-path-to-domain_pddl/domain.pddl"));
 		
@@ -189,7 +182,6 @@ import de.dfki.fastdownwardcaller.*;
 			
 	}
 		
-	// Get a composed service as a w3c Document
 	Plan lowestCostPlan = caller.getLowestCostPlan(true);
 		
 	File outputDirectory = new File("/Users/guangyichen/Desktop/");
@@ -206,3 +198,10 @@ import de.dfki.fastdownwardcaller.*;
 
 ## Complete Example
 You may find a complete example included in this repository.
+
+
+
+## Acknoledgement
+This software is originally adapted and developed by [Anthony Heggen](https://www.linkedin.com/in/anthony-heggen-592188142/), and currently maintained by [Guangyi Chen](https://www.dfki.de/en/web/about-us/employee/person/guch01/).
+
+Contact: Dr. Elena Jaramillo, [PD Dr. Matthias Klusch](https://www.dfki.de/~klusch/)
