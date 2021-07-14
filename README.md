@@ -159,7 +159,7 @@ python3 -m http.server 8080 --bind 127.0.0.1
   
   
 
-#### 2.3 Invoking FastDownwardCaller V1.2
+#### 2.3 Invoking FastDownwardCaller
 ```java
 import java.io.File;
 import java.net.URI;
