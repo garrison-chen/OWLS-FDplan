@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://127.0.0.1:8080/health-scallops/Simple_GoalOntology.owl#"
+    xmlns:p1="http://127.0.0.1:8080/health-scallops/Simple_InitialOntology.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:health-scallops="http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xml:base="http://127.0.0.1:8080/health-scallops/Simple_GoalOntology.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl"/>
+  </owl:Ontology>
+  <health-scallops:Flight rdf:ID="Flight">
+    <health-scallops:hasParameters>
+      <health-scallops:FlightParameters rdf:about="http://127.0.0.1:8080/health-scallops/Simple_InitialOntology.owl#FlightParameters"/>
+    </health-scallops:hasParameters>
+    <health-scallops:isBookedFor>
+      <health-scallops:Person rdf:about="http://127.0.0.1:8080/health-scallops/Simple_InitialOntology.owl#EMAAttendant"/>
+    </health-scallops:isBookedFor>
+  </health-scallops:Flight>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.1, Build 284)  http://protege.stanford.edu -->

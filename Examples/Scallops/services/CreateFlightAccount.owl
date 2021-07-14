@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:process="http://www.daml.org/services/owl-s/1.1/Process.owl#"
+    xmlns:flight-company="http://127.0.0.1:8080/health-scallops/ontology/FlightCompany_Ontology.owl#"
+    xmlns:pddlexpr="https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/PDDLExpression.owl#"
+    xmlns:list="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#"
+    xmlns:time="http://www.isi.edu/~pan/damltime/time-entry.owl#"
+    xmlns="http://127.0.0.1:8080/services/CreateFlightAccount.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:expr="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#"
+    xmlns:service="http://www.daml.org/services/owl-s/1.1/Service.owl#"
+    xmlns:grounding="http://www.daml.org/services/owl-s/1.1/Grounding.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:profile="http://www.daml.org/services/owl-s/1.1/Profile.owl#"
+  xml:base="http://127.0.0.1:8080/services/CreateFlightAccount.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl"/>
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl"/>
+    <owl:imports rdf:resource="http://127.0.0.1:8080/health-scallops/ontology/FlightCompany_Ontology.owl"/>
+  </owl:Ontology>			
+ 
+  <service:Service rdf:ID="CreateFlightAccountService">
+    <service:presents>
+      <profile:Profile rdf:ID="CreateFlightAccountProfile">
+		<profile:hasInput>
+          <process:Input rdf:ID="UserData">
+            <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#Person</process:parameterType>
+          </process:Input>
+        </profile:hasInput>
+        <service:presentedBy rdf:resource="#CreateFlightAccountService"/>
+        <profile:serviceName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Create Flight Account Service</profile:serviceName>
+        <profile:hasInput rdf:resource="#CreditcardInformation"/>
+        <profile:hasInput>
+          <process:Input rdf:ID="DesiredAccountData">
+            <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#Account</process:parameterType>
+          </process:Input>
+        </profile:hasInput>
+		<profile:hasInput>
+			<process:Input rdf:ID="CreditcardInformation">
+    <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#Creditcard</process:parameterType>
+  </process:Input>
+		</profile:hasInput>
+        <profile:textDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >This service creates an account at the Flight Company.</profile:textDescription>
+      </profile:Profile>
+    </service:presents>
+    <service:supports>
+      <grounding:WsdlGrounding rdf:ID="CreateFlightAccountWsdlGrounding">
+        <service:supportedBy rdf:resource="#CreateFlightAccountService"/>
+      </grounding:WsdlGrounding>
+    </service:supports>
+    <service:describedBy>
+      <process:AtomicProcess rdf:ID="CreateFlightAccountAtomicProcess">
+        <process:hasPrecondition>
+			  <pddlexpr:PDDL-Expression rdf:ID="PDDXML-Precondition">
+    <expr:expressionBody rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >(and	
+		(http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#hasAddress ?http://127.0.0.1:8080/services/CreateFlightAccount.owl#UserData ?http://127.0.0.1:8080/services/CreateFlightAccount.owl#UserAddress)
+		(http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#isOwnedBy ?http://127.0.0.1:8080/services/CreateFlightAccount.owl#CreditcardInformation ?http://127.0.0.1:8080/services/CreateFlightAccount.owl#UserData)
+)</expr:expressionBody>
+  </pddlexpr:PDDL-Expression>
+		</process:hasPrecondition>
+        <service:describes rdf:resource="#CreateFlightAccountService"/>
+        <process:hasInput rdf:resource="#DesiredAccountData"/>
+        <process:hasInput rdf:resource="#CreditcardInformation"/>
+        <process:hasResult>
+          <process:Result rdf:ID="Result">
+            <process:hasEffect>
+				<pddlexpr:PDDL-Expression rdf:ID="PDDXML-Effect">
+    <expr:expressionBody rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >(and
+	(http://127.0.0.1:8080/health-scallops/ontology/FlightCompany_Ontology.owl#isValid ?http://127.0.0.1:8080/services/CreateFlightAccount.owl#DesiredAccountData)
+)</expr:expressionBody>
+  </pddlexpr:PDDL-Expression>
+			</process:hasEffect>
+          </process:Result>
+        </process:hasResult>
+        <process:hasInput rdf:resource="#UserData"/>
+      </process:AtomicProcess>
+    </service:describedBy>
+  </service:Service>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.1, Build 284)  http://protege.stanford.edu -->

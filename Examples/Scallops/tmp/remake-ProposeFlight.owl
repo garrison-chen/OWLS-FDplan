@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://127.0.0.1:8080/tmp/remake-ProposeFlight.owl" xmlns:daml="http://www.daml.org/2001/03/daml+oil#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:expr="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#" xmlns:flight-company="http://127.0.0.1:8080/health-scallops/ontology/FlightCompany_Ontology.owl#" xmlns:grounding="http://www.daml.org/services/owl-s/1.1/Grounding.owl#" xmlns:list="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:pddlexpr="https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/PDDLExpression.owl#" xmlns:pddxml="http://127.0.0.1:8080/pddxml.owl" xmlns:process="http://www.daml.org/services/owl-s/1.1/Process.owl#" xmlns:profile="http://www.daml.org/services/owl-s/1.1/Profile.owl#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:service="http://www.daml.org/services/owl-s/1.1/Service.owl#" xmlns:time="http://www.isi.edu/~pan/damltime/time-entry.owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:base="http://127.0.0.1:8080/tmp/remake-ProposeFlight.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl"/>
+    <owl:imports rdf:resource="http://127.0.0.1:8080/health-scallops/ontology/FlightCompany_Ontology.owl"/>
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl"/>
+  </owl:Ontology>        
+  
+  
+
+  <profile:Profile rdf:ID="ProposeFlightProfile">
+    
+    <profile:has_process>
+      <process:AtomicProcess rdf:ID="ProposeFlightAtomicProcess">
+        
+		
+        <process:hasPrecondition>
+          
+        </process:hasPrecondition>
+        <service:describes>
+          <service:Service rdf:ID="ProposeFlightService">
+            <service:supports>
+              <grounding:WsdlGrounding rdf:ID="ProposeFlightWsdlGrounding">
+                <service:supportedBy rdf:resource="#ProposeFlightService"/>
+              </grounding:WsdlGrounding>
+            </service:supports>
+            <service:presents rdf:resource="#ProposeFlightProfile"/>
+            <service:describedBy rdf:resource="#ProposeFlightAtomicProcess"/>
+          </service:Service>
+        </service:describes>
+        <process:hasResult>
+			<process:Result rdf:ID="Result">
+    <process:hasEffect>
+      
+    </process:hasEffect>
+  </process:Result>
+		</process:hasResult>
+        
+      </process:AtomicProcess>
+    </profile:has_process>
+    <profile:textDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This service proposes a flight for a given set of flight parameters (departure airport, arrival airport ...) that is provided by the flight company.</profile:textDescription>
+    <service:presentedBy rdf:resource="#ProposeFlightService"/>
+    
+    <profile:serviceName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Propose Flight Service</profile:serviceName>
+  </profile:Profile>
+</rdf:RDF><!-- Created with Protege (with OWL Plugin 2.1, Build 284)  http://protege.stanford.edu -->

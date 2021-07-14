@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:process="http://www.daml.org/services/owl-s/1.1/Process.owl#"
+    xmlns:flight-company="http://127.0.0.1:8080/health-scallops/ontology/FlightCompany_Ontology.owl#"
+    xmlns:pddxml="http://127.0.0.1:8080/pddxml.owl#"
+    xmlns:list="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:time="http://www.isi.edu/~pan/damltime/time-entry.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:expr="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns="http://127.0.0.1:8080/health-scallops/services/BookFlight.owl#"
+    xmlns:service="http://www.daml.org/services/owl-s/1.1/Service.owl#"
+    xmlns:grounding="http://www.daml.org/services/owl-s/1.1/Grounding.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:profile="http://www.daml.org/services/owl-s/1.1/Profile.owl#"
+  xml:base="http://127.0.0.1:8080/health-scallops/services/BookFlight.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://127.0.0.1:8080/health-scallops/ontology/FlightCompany_Ontology.owl"/>
+    <owl:imports rdf:resource="http://127.0.0.1:8080/pddxml.owl"/>
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl"/>
+    <owl:imports rdf:resource="http://www.daml.org/rules/proposal/swrl.owl"/>
+    <owl:imports rdf:resource="http://www.daml.org/rules/proposal/swrlb.owl"/>
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl"/>
+  </owl:Ontology>
+  <profile:Profile rdf:ID="BookFlightProfile">
+    <profile:hasInput>
+      <process:Input rdf:ID="Flight">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#Flight</process:parameterType>
+      </process:Input>
+    </profile:hasInput>
+    <profile:serviceName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Book Flight Service</profile:serviceName>
+    <profile:hasInput>
+      <process:Input rdf:ID="AccountData">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#Account</process:parameterType>
+      </process:Input>
+    </profile:hasInput>
+    <profile:textDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Books a specified flight for a customer.</profile:textDescription>
+    <profile:has_process>
+      <process:AtomicProcess rdf:ID="BookFlightAtomicProcess">
+        <process:hasInput>
+          <process:Input rdf:ID="Customer">
+            <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#Person</process:parameterType>
+          </process:Input>
+        </process:hasInput>
+        <process:hasInput rdf:resource="#AccountData"/>
+        <process:hasPrecondition>
+          <pddxml:PDDXML-Condition rdf:ID="PDDXML-Precondition">
+            <expr:expressionBody rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >&lt;and>&lt;pred name="http://127.0.0.1:8080/health-scallops/ontology/FlightCompany_Ontology.owl#isValid">&lt;param>?http://127.0.0.1:8080/health-scallops/services/BookFlight.owl#AccountData&lt;/param>&lt;/pred>&lt;pred name="http://127.0.0.1:8080/health-scallops/ontology/FlightCompany_Ontology.owl#isProvided">&lt;param>?http://127.0.0.1:8080/health-scallops/services/BookFlight.owl#Flight&lt;/param>&lt;/pred>&lt;/and></expr:expressionBody>
+          </pddxml:PDDXML-Condition>
+        </process:hasPrecondition>
+        <process:hasInput rdf:resource="#Flight"/>
+        <service:describes>
+          <service:Service rdf:ID="BookFlightService">
+            <service:describedBy rdf:resource="#BookFlightAtomicProcess"/>
+            <service:supports>
+              <grounding:WsdlGrounding rdf:ID="BookFlightWsdlGrounding">
+                <service:supportedBy rdf:resource="#BookFlightService"/>
+              </grounding:WsdlGrounding>
+            </service:supports>
+            <service:presents rdf:resource="#BookFlightProfile"/>
+          </service:Service>
+        </service:describes>
+        <process:hasResult>
+          <process:Result rdf:ID="Result">
+            <process:hasEffect>
+              <pddxml:PDDXML-Expression rdf:ID="PDDXML-Effect">
+                <expr:expressionBody rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >&lt;and>&lt;pred name="http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#isBookedFor">&lt;param>?http://127.0.0.1:8080/health-scallops/services/BookFlight.owl#Flight&lt;/param>&lt;param>?http://127.0.0.1:8080/health-scallops/services/BookFlight.owl#Customer&lt;/param>&lt;/pred>&lt;/and></expr:expressionBody>
+              </pddxml:PDDXML-Expression>
+            </process:hasEffect>
+          </process:Result>
+        </process:hasResult>
+      </process:AtomicProcess>
+    </profile:has_process>
+    <service:presentedBy rdf:resource="#BookFlightService"/>
+    <profile:hasInput rdf:resource="#Customer"/>
+  </profile:Profile>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.1, Build 284)  http://protege.stanford.edu -->

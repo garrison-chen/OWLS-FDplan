@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xml:base="http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Flight">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasParameters"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="FlightParameters"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Transport"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Airport">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Location"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#FlightParameters">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasDestinationLocation"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Airport"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Airport"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasDepartureLocation"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="TransportParameters"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Creditcard"/>
+  <owl:Class rdf:ID="MedicalFlightParameters">
+    <rdfs:subClassOf rdf:resource="#FlightParameters"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Category"/>
+  <owl:Class rdf:ID="Account"/>
+  <owl:Class rdf:ID="Time"/>
+  <owl:Class rdf:ID="Address"/>
+  <owl:Class rdf:ID="FlightCategory">
+    <rdfs:subClassOf rdf:resource="#Category"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Hospital">
+    <rdfs:subClassOf rdf:resource="#Location"/>
+  </owl:Class>
+  <owl:Class rdf:ID="VehicleTransportParameters">
+    <rdfs:subClassOf rdf:resource="#TransportParameters"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Patient">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Person"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MedicalVehicleTransportParameters">
+    <rdfs:subClassOf rdf:resource="#VehicleTransportParameters"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Company"/>
+  <owl:Class rdf:ID="MedicalTreatment"/>
+  <owl:Class rdf:ID="Vehicle"/>
+  <owl:ObjectProperty rdf:ID="isBookedFor">
+    <rdfs:domain rdf:resource="#Transport"/>
+    <rdfs:range rdf:resource="#Person"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="assuresMedicalTreatment">
+    <rdfs:range rdf:resource="#MedicalTreatment"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#MedicalFlightParameters"/>
+          <owl:Class rdf:about="#MedicalVehicleTransportParameters"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasCategory">
+    <rdfs:domain rdf:resource="#FlightParameters"/>
+    <rdfs:range rdf:resource="#FlightCategory"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasParameters">
+    <rdfs:domain rdf:resource="#Transport"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#TransportParameters"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasDepartureLocation">
+    <rdfs:range rdf:resource="#Location"/>
+    <rdfs:domain rdf:resource="#TransportParameters"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasArrivalTime">
+    <rdfs:domain rdf:resource="#TransportParameters"/>
+    <rdfs:range rdf:resource="#Time"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasDestinationLocation">
+    <rdfs:range rdf:resource="#Location"/>
+    <rdfs:domain rdf:resource="#TransportParameters"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isOwnedBy">
+    <rdfs:domain rdf:resource="#Creditcard"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Person"/>
+          <owl:Class rdf:about="#Company"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasDepartureTime">
+    <rdfs:range rdf:resource="#Time"/>
+    <rdfs:domain rdf:resource="#TransportParameters"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:FunctionalProperty rdf:ID="hasNearestAirport">
+    <rdfs:range rdf:resource="#Airport"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Address"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="usesVehicle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Vehicle"/>
+    <rdfs:domain rdf:resource="#VehicleTransportParameters"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAddress">
+    <rdfs:range rdf:resource="#Address"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Location"/>
+          <owl:Class rdf:about="#Person"/>
+          <owl:Class rdf:about="#Company"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.1, Build 284)  http://protege.stanford.edu -->

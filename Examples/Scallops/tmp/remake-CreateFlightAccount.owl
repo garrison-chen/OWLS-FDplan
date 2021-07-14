@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://127.0.0.1:8080/tmp/remake-CreateFlightAccount.owl" xmlns:daml="http://www.daml.org/2001/03/daml+oil#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:expr="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#" xmlns:flight-company="http://127.0.0.1:8080/health-scallops/ontology/FlightCompany_Ontology.owl#" xmlns:grounding="http://www.daml.org/services/owl-s/1.1/Grounding.owl#" xmlns:list="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:pddlexpr="https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/PDDLExpression.owl#" xmlns:pddxml="http://127.0.0.1:8080/pddxml.owl" xmlns:process="http://www.daml.org/services/owl-s/1.1/Process.owl#" xmlns:profile="http://www.daml.org/services/owl-s/1.1/Profile.owl#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:service="http://www.daml.org/services/owl-s/1.1/Service.owl#" xmlns:time="http://www.isi.edu/~pan/damltime/time-entry.owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:base="http://127.0.0.1:8080/tmp/remake-CreateFlightAccount.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl"/>
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl"/>
+    <owl:imports rdf:resource="http://127.0.0.1:8080/health-scallops/ontology/FlightCompany_Ontology.owl"/>
+  </owl:Ontology>			
+ 
+  <service:Service rdf:ID="CreateFlightAccountService">
+    <service:presents>
+      <profile:Profile rdf:ID="CreateFlightAccountProfile">
+		
+        <service:presentedBy rdf:resource="#CreateFlightAccountService"/>
+        <profile:serviceName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Create Flight Account Service</profile:serviceName>
+        
+        
+		
+        <profile:textDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This service creates an account at the Flight Company.</profile:textDescription>
+      </profile:Profile>
+    </service:presents>
+    <service:supports>
+      <grounding:WsdlGrounding rdf:ID="CreateFlightAccountWsdlGrounding">
+        <service:supportedBy rdf:resource="#CreateFlightAccountService"/>
+      </grounding:WsdlGrounding>
+    </service:supports>
+    <service:describedBy>
+      <process:AtomicProcess rdf:ID="CreateFlightAccountAtomicProcess">
+        <process:hasPrecondition>
+			  
+		</process:hasPrecondition>
+        <service:describes rdf:resource="#CreateFlightAccountService"/>
+        
+        
+        <process:hasResult>
+          <process:Result rdf:ID="Result">
+            <process:hasEffect>
+				
+			</process:hasEffect>
+          </process:Result>
+        </process:hasResult>
+        
+      </process:AtomicProcess>
+    </service:describedBy>
+  </service:Service>
+</rdf:RDF><!-- Created with Protege (with OWL Plugin 2.1, Build 284)  http://protege.stanford.edu -->

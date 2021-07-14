@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:process="http://www.daml.org/services/owl-s/1.1/Process.owl#"
+    xmlns:flight-company="http://127.0.0.1:8080/health-scallops/ontology/FlightCompany_Ontology.owl#"
+    xmlns:pddlexpr="https://raw.githubusercontent.com/gtzionis/WelcomeOntology/main/PDDLExpression.owl#"
+    xmlns:list="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#"
+    xmlns:time="http://www.isi.edu/~pan/damltime/time-entry.owl#"
+    xmlns="http://127.0.0.1:8080/services/ProposeFlight.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:expr="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#"
+    xmlns:service="http://www.daml.org/services/owl-s/1.1/Service.owl#"
+    xmlns:grounding="http://www.daml.org/services/owl-s/1.1/Grounding.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:profile="http://www.daml.org/services/owl-s/1.1/Profile.owl#"
+  xml:base="http://127.0.0.1:8080/services/ProposeFlight.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl"/>
+    <owl:imports rdf:resource="http://127.0.0.1:8080/health-scallops/ontology/FlightCompany_Ontology.owl"/>
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl"/>
+  </owl:Ontology>        
+  
+  
+
+  <profile:Profile rdf:ID="ProposeFlightProfile">
+    <profile:hasInput rdf:resource="#Request"/>
+    <profile:has_process>
+      <process:AtomicProcess rdf:ID="ProposeFlightAtomicProcess">
+        <process:hasInput>
+			<process:Input rdf:ID="Request">
+    <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#FlightParameters</process:parameterType>
+  </process:Input>
+		</process:hasInput>
+		
+        <process:hasPrecondition>
+          <pddlexpr:PDDL-Expression rdf:ID="PDDXML-Precondition">
+            <expr:expressionBody rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >(and
+	(http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#hasDepartureLocation ?http://127.0.0.1:8080/services/ProposeFlight.owl#Request ?http://127.0.0.1:8080/services/ProposeFlight.owl#DepartureAirport)
+	(http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#hasDestinationLocation ?http://127.0.0.1:8080/services/ProposeFlight.owl#Request ?http://127.0.0.1:8080/services/ProposeFlight.owl#ArrivalAirport)
+	(http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#hasDepartureTime ?http://127.0.0.1:8080/services/ProposeFlight.owl#Request ?http://127.0.0.1:8080/services/ProposeFlight.owl#DepartureTime)
+	(http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#hasArrivalTime ?http://127.0.0.1:8080/services/ProposeFlight.owl#Request ?http://127.0.0.1:8080/services/ProposeFlight.owl#ArrivalTime)
+	(http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#hasCategory ?http://127.0.0.1:8080/services/ProposeFlight.owl#Request ?http://127.0.0.1:8080/services/ProposeFlight.owl#Category)
+)</expr:expressionBody>
+          </pddlexpr:PDDL-Expression>
+        </process:hasPrecondition>
+        <service:describes>
+          <service:Service rdf:ID="ProposeFlightService">
+            <service:supports>
+              <grounding:WsdlGrounding rdf:ID="ProposeFlightWsdlGrounding">
+                <service:supportedBy rdf:resource="#ProposeFlightService"/>
+              </grounding:WsdlGrounding>
+            </service:supports>
+            <service:presents rdf:resource="#ProposeFlightProfile"/>
+            <service:describedBy rdf:resource="#ProposeFlightAtomicProcess"/>
+          </service:Service>
+        </service:describes>
+        <process:hasResult>
+			<process:Result rdf:ID="Result">
+    <process:hasEffect>
+      <pddlexpr:PDDL-Expression rdf:ID="PDDXML-Effect">
+        <expr:expressionBody rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >(and
+	(http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#hasParameters ?http://127.0.0.1:8080/services/ProposeFlight.owl#ProposedFlight ?http://127.0.0.1:8080/services/ProposeFlight.owl#Request)
+	(http://127.0.0.1:8080/health-scallops/ontology/FlightCompany_Ontology.owl#isProvided ?http://127.0.0.1:8080/services/ProposeFlight.owl#ProposedFlight)
+)</expr:expressionBody>
+      </pddlexpr:PDDL-Expression>
+    </process:hasEffect>
+  </process:Result>
+		</process:hasResult>
+        <process:hasOutput>
+			  <process:Output rdf:ID="ProposedFlight">
+    <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#Flight</process:parameterType>
+  </process:Output>
+		</process:hasOutput>
+      </process:AtomicProcess>
+    </profile:has_process>
+    <profile:textDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This service proposes a flight for a given set of flight parameters (departure airport, arrival airport ...) that is provided by the flight company.</profile:textDescription>
+    <service:presentedBy rdf:resource="#ProposeFlightService"/>
+    <profile:hasOutput rdf:resource="#ProposedFlight"/>
+    <profile:serviceName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Propose Flight Service</profile:serviceName>
+  </profile:Profile>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.1, Build 284)  http://protege.stanford.edu -->

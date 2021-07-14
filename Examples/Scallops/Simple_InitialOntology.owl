@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://127.0.0.1:8080/health-scallops/Simple_InitialOntology.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:health-scallops="http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xml:base="http://127.0.0.1:8080/health-scallops/Simple_InitialOntology.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://127.0.0.1:8080/health-scallops/ontology/Health-Scallops_Ontology.owl"/>
+  </owl:Ontology>
+  <health-scallops:Airport rdf:ID="AirportNearFaroHospital"/>
+  <health-scallops:Airport rdf:ID="AirportNearSaarbrueckenHospital"/>
+  <health-scallops:Person rdf:ID="EMAAttendant">
+    <health-scallops:hasAddress>
+      <health-scallops:Address rdf:ID="AddressOfEMAAttendant"/>
+    </health-scallops:hasAddress>
+  </health-scallops:Person>
+  <health-scallops:Time rdf:ID="FlightArrivalTime"/>
+  <health-scallops:Creditcard rdf:ID="EMACreditcard">
+    <health-scallops:isOwnedBy rdf:resource="#EMAAttendant"/>
+  </health-scallops:Creditcard>
+  <health-scallops:FlightParameters rdf:ID="FlightParameters">
+    <health-scallops:hasDepartureTime>
+      <health-scallops:Time rdf:ID="FlightDepartureTime"/>
+    </health-scallops:hasDepartureTime>
+    <health-scallops:hasCategory>
+      <health-scallops:FlightCategory rdf:ID="FlightCategory"/>
+    </health-scallops:hasCategory>
+    <health-scallops:hasDepartureLocation rdf:resource="#AirportNearFaroHospital"/>
+    <health-scallops:hasDestinationLocation rdf:resource="#AirportNearSaarbrueckenHospital"/>
+    <health-scallops:hasArrivalTime rdf:resource="#FlightArrivalTime"/>
+  </health-scallops:FlightParameters>
+  <health-scallops:Account rdf:ID="DesiredAccountData"/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.1, Build 284)  http://protege.stanford.edu -->
