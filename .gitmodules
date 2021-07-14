@@ -1,0 +1,3 @@
+[submodule "OWLS2PDDL"]
+	path = OWLS2PDDL
+	url = https://github.com/garrison-chen/OWLS2PDDL
