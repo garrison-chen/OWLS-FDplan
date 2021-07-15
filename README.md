@@ -3,9 +3,9 @@
 ## Introduction
 OWLS-FDplan is a service composition planner: Given a set of problem and/or domain described in OWL as input, as well as a service composition problem expressed in OWL-S 1.1, OWLS-FDplan produces a set of plans solving that problem. 
 
-It consists of two programs: 
-1) using OWLS2PDDL to convert OWL files into PDDL files; 
-2) invoking FastDownwardCaller on this PDDL representation to produce the set of plans (OWL-S).
+It consists of two programs (as submodules in this repository): 
+1) using [OWLS2PDDL](https://github.com/garrison-chen/OWLS2PDDL/tree/fb1e1729b549b74075b8125f749d953b1a0efaf3) to convert OWL files into PDDL files; 
+2) invoking [FastDownwardCaller](https://github.com/garrison-chen/FastDownwardCaller/tree/a39906beb93233eb077adcd96f0c53f3bbb727d4) on this PDDL representation to produce the set of plans (OWL-S).
 
 
 ## How to run
@@ -17,8 +17,9 @@ The current version of OWLS2PDDL requires read/write access to a local directory
 root folder
   services
     <all relevant OWL-S files>
+  Initial.owl file
+  Goal.owl file
   tmp
-  <any other OWL resource files>
 ```
 
   
@@ -26,13 +27,13 @@ root folder
 OWLS2PDDL expects its services to be hosted on a webserver, and was developed with a python http server hosting these services. The CLI commands that follow will set up python 3’s http server.
 
 Windows:
-```
-cd path/to/root/folder
+```bash
+cd path\to\root\folder
 python3 -m http.server 8080 --bind 127.0.0.1
 ```
 
 Linux / MacOS:
-```
+```bash
 cd path/to/root/folder
 python3 -m http.server 8080 --bind 127.0.0.1
 ```
@@ -114,7 +115,7 @@ import de.dfki.owls2pddxml_2_0.OWLS2PDDL;
 
 ### 2. FastdownwardCaller
 #### 2.1 Installing Fast-Downward
-```
+```bash
 cd path/to/working-dir
 git clone https://github.com/aibasel/downward
 ./build.py release
@@ -123,13 +124,13 @@ git clone https://github.com/aibasel/downward
 
 #### 2.2 Setting Up a Local Server
 Windows:
-```
-cd path/to/root/folder
+```bash
+cd path\to\root\folder
 python3 -m http.server 8080 --bind 127.0.0.1
 ```
 
 Linux / MacOS:
-```
+```bash
 cd path/to/root/folder
 python3 -m http.server 8080 --bind 127.0.0.1
 ```
