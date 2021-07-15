@@ -1,7 +1,11 @@
 # OWLS-FDplan
 
 ## Introduction
-OWLS-FDplan is a service composition planner: Given a service composition problem expressed in OWL-S 1.1 as input, OWLS-FDplan produces a set of plans solving that problem. It consists of two steps: 1) using OWLS2PDDL to convert OWL files into PDDL files; 2) invoking FastDownwardCaller on this PDDL representation to produce the set of plans (OWL-S).
+OWLS-FDplan is a service composition planner: Given a set of problem and/or domain described in OWL as input, as well as a service composition problem expressed in OWL-S 1.1, OWLS-FDplan produces a set of plans solving that problem. 
+
+It consists of two programs: 
+1) using OWLS2PDDL to convert OWL files into PDDL files; 
+2) invoking FastDownwardCaller on this PDDL representation to produce the set of plans (OWL-S).
 
 
 ## How to run
@@ -43,8 +47,6 @@ import java.io.IOException;
 import org.semanticweb.owl.model.OWLException;
 import de.dfki.owls2pddxml_2_0.OWLS2PDDL;
 	
-	public static final String PDDXML_DOMAIN_PRINT_LOCATION = "your-path/domain.xml";
-	public static final String PDDXML_PROBLEM_PRINT_LOCATION = "your-path/problem.xml";
 	public static final String PDDL_DOMAIN_PRINT_LOCATION = "your-path/domain.pddl";
 	public static final String PDDL_PROBLEM_PRINT_LOCATION = "your-path/problem.pddl";
 
@@ -103,31 +105,6 @@ import de.dfki.owls2pddxml_2_0.OWLS2PDDL;
 	} catch (IOException e) {
 		    
 		e.printStackTrace();
-	}
-
-	FileWriter domainFileWriter;
-
-	try {
-		domainFileWriter = new FileWriter(PDDXML_DOMAIN_PRINT_LOCATION);
-		domainFileWriter.write(converter.getDomain().makeTextDocument());
-		domainFileWriter.close();
-	} catch (IOException e) {
-	
-	    e.printStackTrace();
-	}
-		      
-	FileWriter problemFileWriter;
-		      
-	try {
-		        
-		problemFileWriter = new FileWriter(PDDXML_PROBLEM_PRINT_LOCATION);
-		problemFileWriter.write(converter.getProblem().makeTextDocument());
-	    problemFileWriter.close();
-		   
-	} catch (IOException e) {
-	
-		e.printStackTrace();
-		
 	}
 	}
 	
