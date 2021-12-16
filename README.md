@@ -179,7 +179,7 @@ You may find a complete example included in this repository.
 
 
 
-## Acknoledgement
+## Acknowledgement
 This software is originally adapted and developed by [Anthony Heggen](https://www.linkedin.com/in/anthony-heggen-592188142/), and currently maintained by [Guangyi Chen](https://www.dfki.de/en/web/about-us/employee/person/guch01/).
 
 Contact: Dr. Elena Jaramillo, [PD Dr. Matthias Klusch](https://www.dfki.de/~klusch/)
